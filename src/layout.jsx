@@ -1,11 +1,11 @@
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen">
+    <div className="h-screen w-screen flex flex-col justify-between ">
       <Header />
-      <main className="max-w-6xl mx-auto px-4 py-8">{children}</main>
+      <main className="sm:max-w-2xl  px-4 py-2">{children}</main>
       <Footer />
     </div>
   );

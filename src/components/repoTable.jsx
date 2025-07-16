@@ -1,10 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from "react";
 
 export default function RepoTable({ repos }) {
-  const [sortBy, setSortBy] = useState('stars'); // or 'name'
-  const [filterText, setFilterText] = useState('');
+  const [sortBy, setSortBy] = useState("stars");
+  const [filterText, setFilterText] = useState("");
 
-  // Filter and sort repositories
   const filteredAndSortedRepos = useMemo(() => {
     let filtered = repos;
 
@@ -15,14 +14,14 @@ export default function RepoTable({ repos }) {
     }
 
     return [...filtered].sort((a, b) => {
-      if (sortBy === 'stars') return b.stargazers_count - a.stargazers_count;
-      if (sortBy === 'name') return a.name.localeCompare(b.name);
+      if (sortBy === "stars") return b.stargazers_count - a.stargazers_count;
+      if (sortBy === "name") return a.name.localeCompare(b.name);
       return 0;
     });
   }, [repos, sortBy, filterText]);
 
   return (
-    <div className="max-w-4xl mx-auto p-4 bg-white rounded shadow">
+    <div className=" mx-auto p-2 bg-white rounded shadow">
       <div className="flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
         <input
           type="text"
@@ -42,7 +41,7 @@ export default function RepoTable({ repos }) {
         </select>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-auto max-w-full md:max-w-xl max-h-[36rem]">
         <table className="min-w-full table-auto border border-gray-200">
           <thead className="bg-gray-100 text-left">
             <tr>
@@ -52,17 +51,25 @@ export default function RepoTable({ repos }) {
               <th className="px-4 py-2 border-b">Link</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {filteredAndSortedRepos.length > 0 ? (
               filteredAndSortedRepos.map((repo) => (
                 <tr key={repo.id} className="hover:bg-gray-50">
-                  <td className="px-4 py-2 border-b font-medium">{repo.name}</td>
-                  <td className="px-4 py-2 border-b text-sm text-gray-600">
-                    {repo.description || 'No description'}
+                  <td className="px-4 py-2 border-b font-medium">
+                    {repo.name}
                   </td>
-                  <td className="px-4 py-2 border-b text-center">{repo.stargazers_count}</td>
+                  <td className="px-4 py-2 border-b text-sm text-gray-600">
+                    {repo.description || "No description"}
+                  </td>
+                  <td className="px-4 py-2 border-b text-center">
+                    {repo.stargazers_count}
+                  </td>
                   <td className="px-4 py-2 border-b text-blue-600 hover:underline text-sm">
-                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={repo.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       View
                     </a>
                   </td>

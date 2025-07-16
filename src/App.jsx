@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Layout from "./layout";
-import Toaster from "./components/toaster";
-import { GitHubProvider } from "./context/github";
+import { GitHubProvider } from "./context/githubContext";
+import { ToastContainer } from "react-toastify";
 
 function PageRouter() {
   return (
@@ -18,7 +18,7 @@ function App() {
   return (
     <GitHubProvider>
       <Layout>
-        <Toaster />
+        <ToastContainer />
         <PageRouter />
       </Layout>
     </GitHubProvider>
