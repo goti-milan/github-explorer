@@ -3,7 +3,7 @@ import RepoTable from "./repoTable";
 export default function UserDetails({ user, repos }) {
 
   return (
-    <section className="mb-8 max-w-2xl mx-auto p-4 bg-white rounded shadow">
+    <section className="mb-8 max-w-2xl  p-4 bg-white rounded shadow">
       <div className="mb-6 p-4 border border-gray-300 rounded-lg bg-white shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center gap-4">
           <div className="flex-1">

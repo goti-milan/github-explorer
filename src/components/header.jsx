@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 const Header = () => {
   return (
     <header className="bg-card border-b border-border shadow-sm">
-      <div className=" mx-auto px-4 py-4">
+      <div className=" px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <FaGithub className="text-2xl text-foreground" />
